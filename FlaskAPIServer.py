@@ -3,9 +3,7 @@ from flask import Flask, render_template
 from flask_restful import Api, Resource
 
 
-
-sheet_id = '1BwbEBnjsBQQ46-FweVfNS8tA96B4Ic7xsZ9yr7bdr-8'
-df =pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv")
+df =pd.read_csv("https://docs.google.com/spreadsheets/d/1BwbEBnjsBQQ46-FweVfNS8tA96B4Ic7xsZ9yr7bdr-8/export?format=csv")
 records = df.to_dict(orient='records')
 
 
@@ -25,6 +23,8 @@ def index():
 class All(Resource):
 
     def get(self):
+        df =pd.read_csv("https://docs.google.com/spreadsheets/d/1BwbEBnjsBQQ46-FweVfNS8tA96B4Ic7xsZ9yr7bdr-8/export?format=csv")
+        records = df.to_dict(orient='records')
         return records
 
 
